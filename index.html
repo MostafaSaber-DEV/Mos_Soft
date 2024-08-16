@@ -1,78 +1,153 @@
-<style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #f7f7f7;
-        margin: 0;
-        padding: 0;
-        color: #333;
-    }
-    .navbar {
-        background-color: #2667ff;
-        padding: 10px 0; /* تعديل البادينغ ليتناسب مع شاشات المحمول */
-        text-align: right;
-    }
-    .navbar a {
-        color: #fff;
-        margin: 0 5px; /* تقليل الهامش لتناسب شاشات المحمول */
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .header {
-        padding: 20px; /* تعديل البادينغ ليتناسب مع شاشات المحمول */
-        text-align: center;
-        color: #fff;
-    }
-    .header img {
-        width: 100%; /* جعل الصورة تتناسب مع عرض الشاشة */
-        max-height: 200px; /* تقليل الارتفاع ليظهر جيدًا على شاشات المحمول */
-    }
-    .cta {
-        padding: 20px; /* تعديل البادينغ ليتناسب مع شاشات المحمول */
-        display: flex;
-        flex-direction: column; /* تغيير الاتجاه إلى عمودي ليتناسب مع شاشات المحمول */
-        align-items: center;
-    }
-    .cta .text {
-        max-width: 100%; /* جعل النص يتناسب مع عرض الشاشة */
-        text-align: center; /* جعل النص في المنتصف */
-    }
-    .cta img {
-        max-width: 100%; /* جعل الصورة تتناسب مع عرض الشاشة */
-        height: auto;
-        margin-top: 20px; /* إضافة مسافة بين النص والصورة */
-    }
-    .form-container {
-        background: #add7f6;
-        padding: 20px; /* تقليل البادينغ ليتناسب مع شاشات المحمول */
-        border-radius: 10px;
-        max-width: 90%; /* تقليل العرض ليتناسب مع شاشات المحمول */
-        margin: 20px auto; /* جعل الهامش من الجانبين آليًا */
-        text-align: center;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    }
-    .form-container input[type="text"], .form-container input[type="submit"] {
-        font-size: 16px; /* تقليل حجم النص ليتناسب مع شاشات المحمول */
-    }
-    .result {
-        margin-top: 20px;
-        padding: 20px;
-        background: #f0f8ff;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        text-align: right;
-        color: #000;
-        max-width: 90%; /* تقليل العرض ليتناسب مع شاشات المحمول */
-        margin: 0 auto; /* جعل الهامش من الجانبين آليًا */
-    }
-    .footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 20px;
-        margin-top: 50px;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استعلام عن نتيجة الطالب</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #ffe3c3;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #f39c12;
+        }
+        .cta {
+            padding: 50px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+        .form-container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .form-container input[type="text"] {
+            padding: 15px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+        }
+        .form-container input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .result p {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .result img {
+            width: 100px;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>استعلام عن نتيجة الطالب</h2>
+    </div>
+
+    <div class="cta">
+        <div class="form-container">
+            <h1>استعلام عن نتيجة الطالب</h1>
+            <form id="studentForm">
+                <label for="seatNumber">أدخل رقم الجلوس:</label><br />
+                <input class="form-control" type="text" id="seatNumber" name="seatNumber" required><br />
+                <input class="btn btn-success" type="submit" value="عرض المعلومات">
+            </form>
+        </div>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Workhu. All rights reserved.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script>
+        // تحميل بيانات الطلاب من ملف CSV
+        Papa.parse('data.csv', {
+            download: true,
+            header: true,
+            complete: function(results) {
+                window.studentData = results.data.reduce((acc, row) => {
+                    acc[row['رقم الجلوس']] = row;
+                    return acc;
+                }, {});
+            }
+        });
+
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const seatNumber = document.getElementById('seatNumber').value;
+            const studentInfo = window.studentData[seatNumber];
+
+            const resultDiv = document.getElementById('result');
+            if (studentInfo) {
+                resultDiv.innerHTML = `
+                    <p>اسم الطالب: ${studentInfo['اسم الطالب']}</p>
+                    <p>اسم السنتر: ${studentInfo['اسم السنتر']}</p>
+                    <p>اسم المجموعة: ${studentInfo['اسم المجموعة']}</p>
+                    <p>الكود: ${studentInfo['الكود']}</p>
+                    <p>الدرجة: ${studentInfo['الدرجة']}</p>
+                    
+                `;
+            } else {
+                resultDiv.innerHTML = `<p>لم يتم العثور على معلومات للطالب رقم ${seatNumber}</p>`;
+            }
+        });
+    </script>
+
+</body>
+</html>
 
 
 
